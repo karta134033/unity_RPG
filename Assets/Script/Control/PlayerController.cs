@@ -9,7 +9,7 @@ namespace RPG.Control {
         void Update() {
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
-            print("hasn't hit");
+            print("Out of range");
         }
 
         public bool InteractWithCombat() {
@@ -34,10 +34,11 @@ namespace RPG.Control {
             if (hasHit) {
                 if (Input.GetMouseButtonDown(0)) {
                     GetComponent<Mover>().MoveTo(hit.point);
+                    print("InteractWithMovement");
                 }
                 return true;
             }
-            return false;
+            return false;  // 超出地圖邊界
         }
     }
 }
