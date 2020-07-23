@@ -2,14 +2,15 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Fight;
+using RPG.Core;
 
 namespace RPG.Control {
-    public class PlayerController : MonoBehaviour {
+    public class PlayerController : MonoBehaviour, ActionInterface {
 
         void Update() {
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
-            print("Out of range");
+            print("Mouse location is out of range");
         }
 
         public bool InteractWithCombat() {
@@ -19,8 +20,8 @@ namespace RPG.Control {
                 if (target == null) continue;
 
                 if (Input.GetMouseButtonDown(0)) {
-                    print(target);
                     GetComponent<Fighter>().Attack(target);
+                    // print("InteractWithCombat");
                 }
                 return true;
             }
@@ -33,12 +34,17 @@ namespace RPG.Control {
             bool hasHit = Physics.Raycast(ray, out hit);
             if (hasHit) {
                 if (Input.GetMouseButtonDown(0)) {
+                    GetComponent<ActionSchedular>().SetAction(this);
                     GetComponent<Mover>().MoveTo(hit.point);
-                    print("InteractWithMovement");
+                    // print("InteractWithMovement");
                 }
                 return true;
             }
             return false;  // 超出地圖邊界
+        }
+
+        public void Cancel() {
+            print("PlayerController cancel");
         }
     }
 }
