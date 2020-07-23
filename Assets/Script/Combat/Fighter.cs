@@ -17,9 +17,13 @@ namespace RPG.Fight {
                 }
                 if (isInRange) {
                     GetComponent<Mover>().Cancel();
-                    target = null;
+                    AttackBehavior();
                 }
             }
+        }
+
+        private void AttackBehavior() {
+            GetComponent<Animator>().SetTrigger("Attack");
         }
 
         public void Attack(CombatTarget combatTarget) {
@@ -31,6 +35,10 @@ namespace RPG.Fight {
         public void Cancel() {
             print("Fighter cancel");
             target = null;
+        }
+
+        void Hit() {  // 來自於動畫的事件
+
         }
     }
 }
