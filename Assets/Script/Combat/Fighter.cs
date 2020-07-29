@@ -8,6 +8,7 @@ namespace RPG.Fight {
 
         [SerializeField] float weaponRange = 5f;
         [SerializeField] float timeBetweenAttack = 1f;
+        [SerializeField] float attackDamage = 10f;
         Transform target;
         float timeSinceLastAttack = 0;
 
@@ -28,6 +29,7 @@ namespace RPG.Fight {
 
         private void AttackBehavior() {
             if(timeSinceLastAttack > timeBetweenAttack) {
+                // 以下會觸發void Hit()
                 GetComponent<Animator>().SetTrigger("Attack");
                 timeSinceLastAttack = 0;
             }
@@ -36,7 +38,8 @@ namespace RPG.Fight {
         public void Attack(CombatTarget combatTarget) {
             print("Attack");
             GetComponent<ActionSchedular>().SetAction(this);
-            target = combatTarget.transform;
+            target = combatTarget.transform;  // 取得攻擊目標
+            print("target: " + target);
         }
 
         public void Cancel() {
@@ -45,7 +48,7 @@ namespace RPG.Fight {
         }
 
         void Hit() {  // 來自於動畫的事件
-
+            if (target != null) target.GetComponent<Health>().TakeDamage(attackDamage);
         }
     }
 }
