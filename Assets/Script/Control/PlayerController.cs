@@ -21,7 +21,7 @@ namespace RPG.Control {
 
                 if (Input.GetMouseButtonDown(0)) {
                     GetComponent<Fighter>().Attack(target);
-                    // print("InteractWithCombat");
+                    print("InteractWithCombat");
                 }
                 return true;
             }

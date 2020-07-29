@@ -6,7 +6,7 @@ using RPG.Core;
 namespace RPG.Fight {
     public class Fighter : MonoBehaviour, ActionInterface {
 
-        [SerializeField] float weaponRange = 5f;
+        [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttack = 1f;
         [SerializeField] float attackDamage = 10f;
         Transform target;
