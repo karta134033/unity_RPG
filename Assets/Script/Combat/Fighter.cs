@@ -3,14 +3,14 @@ using RPG.Combat;
 using RPG.Movement;
 using RPG.Core;
 
-namespace RPG.Fight {
+namespace RPG.Combat {
     public class Fighter : MonoBehaviour, ActionInterface {
 
-        float weaponRange = 2f;
-        float timeBetweenAttack = 1f;
-        float attackDamage = 20f;
+        [SerializeField] float weaponRange = 2f;
+        [SerializeField] float timeBetweenAttack = 1f;
+        [SerializeField] float attackDamage = 20f;
+        [SerializeField] float timeSinceLastAttack = Mathf.Infinity;
         Health target;
-        float timeSinceLastAttack = 0;
 
         private void Update() {
             timeSinceLastAttack += Time.deltaTime;
@@ -37,13 +37,13 @@ namespace RPG.Fight {
             }
         }
 
-        public bool CanAttack(CombatTarget combatTarget) {
+        public bool CanAttack(GameObject combatTarget) {
             if (combatTarget == null) return false;
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }
 
-        public void Attack(CombatTarget combatTarget) {
+        public void Attack(GameObject combatTarget) {
             print("Attack");
             GetComponent<ActionSchedular>().SetAction(this);
             target = combatTarget.GetComponent<Health>();  // 取得攻擊目標

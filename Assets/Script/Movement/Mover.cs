@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Combat;
 
 namespace RPG.Movement {
     public class Mover : MonoBehaviour, ActionInterface
     {
         [SerializeField] Transform target;
         NavMeshAgent navMeshAgent;
-
+        Health health;
         private void Start() {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
 
         void Update() {
+            navMeshAgent.enabled = !health.IsDead();
             UpdateAnimatior();
         }
 
