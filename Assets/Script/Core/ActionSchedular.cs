@@ -16,7 +16,5 @@ namespace RPG.Core {
         public void CancelCurrentAction() {
             SetAction(null);
         }
-        
     }
-    
 }    

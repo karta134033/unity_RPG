@@ -44,14 +44,13 @@ namespace RPG.Combat {
         }
 
         public void Attack(GameObject combatTarget) {
-            print("Attack");
+            // print("Attack");
             GetComponent<ActionSchedular>().SetAction(this);
             target = combatTarget.GetComponent<Health>();  // 取得攻擊目標
-            print("target: " + target);
         }
 
         public void Cancel() {
-            print("Fighter cancel");
+            // print("Fighter cancel");
             target = null;
             StopAttack();
         }
