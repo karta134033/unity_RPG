@@ -19,7 +19,7 @@ namespace RPG.Combat {
                 bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
                 if (target.IsDead()) return;
                 if (!isInRange) {
-                    GetComponent<Mover>().MoveTo(target.transform.position);
+                    GetComponent<Mover>().MoveTo(target.transform.position, 1f);
                 }
                 if (isInRange) {
                     GetComponent<Mover>().Cancel();

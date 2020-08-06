@@ -40,8 +40,7 @@ namespace RPG.Control {
             bool hasHit = Physics.Raycast(ray, out hit);
             if (hasHit) {
                 if (Input.GetMouseButtonDown(0)) {
-                    GetComponent<ActionSchedular>().SetAction(this);
-                    GetComponent<Mover>().MoveTo(hit.point);
+                    GetComponent<Mover>().StartMoveAction(hit.point, 1f);
                     // print("InteractWithMovement");
                 }
                 return true;
