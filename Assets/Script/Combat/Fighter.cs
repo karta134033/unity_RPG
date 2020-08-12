@@ -50,9 +50,9 @@ namespace RPG.Combat {
         }
 
         public void Cancel() {
-            // print("Fighter cancel");
-            target = null;
             StopAttack();
+            target = null;
+            GetComponent<Mover>().Cancel();
         }
 
         private void StopAttack() {

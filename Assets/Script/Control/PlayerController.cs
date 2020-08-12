@@ -15,7 +15,7 @@ namespace RPG.Control {
             if (health.IsDead()) return;
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
-            print("Mouse location is out of range");
+            // print("Mouse location is out of range");
         }
 
         public bool InteractWithCombat() {
@@ -27,7 +27,7 @@ namespace RPG.Control {
 
                 if (Input.GetMouseButtonDown(0)) {
                     GetComponent<Fighter>().Attack(target.gameObject);
-                    print("InteractWithCombat");
+                    // print("InteractWithCombat");
                 }
                 return true;
             }
@@ -50,6 +50,7 @@ namespace RPG.Control {
 
         public void Cancel() {
             print("PlayerController cancel");
+            // GetComponent<Mover>().Cancel();
         }
     }
 }

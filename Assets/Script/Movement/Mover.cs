@@ -34,7 +34,9 @@ namespace RPG.Movement {
         }
 
         public void Cancel() {
-            navMeshAgent.isStopped = true;
+            if(navMeshAgent.isActiveAndEnabled) {  // 避免fighter調用此方法時出問題
+                navMeshAgent.isStopped = true;
+            }
         }
 
         private void UpdateAnimatior() {

@@ -8,7 +8,12 @@ namespace RPG.Core {
             if (action == currentAction) return;
             if (action != null) {
                 if (currentAction != null) currentAction.Cancel();
-                print ("Change Action from: " + currentAction + "to :" + action);
+                // print ("Change Action from: " + currentAction + "to :" + action);
+                currentAction = action;
+            }
+            if (action == null) {
+                print("action == null");
+                if (currentAction != null) currentAction.Cancel();
                 currentAction = action;
             }
         }

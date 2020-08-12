@@ -15,7 +15,7 @@ namespace RPG.Combat {
                 isDead = true;
                 GetComponent<Animator>().SetTrigger("Die");
             }
-            print(health);
+            // print(health);
         }
 
         private void Die() {
