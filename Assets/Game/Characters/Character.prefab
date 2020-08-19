@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3419714194251932272}
   - component: {fileID: 548472062179841524}
   - component: {fileID: 2134228051401456976}
+  - component: {fileID: 6942421788303915155}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -135,6 +136,7 @@ MonoBehaviour:
   weaponRange: 2
   timeBetweenAttack: 1
   attackDamage: 10
+  timeSinceLastAttack: Infinity
 --- !u!95 &2134228051401456976
 Animator:
   serializedVersion: 3
@@ -154,3 +156,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6942421788303915155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312784922366671581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 

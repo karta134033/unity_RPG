@@ -1,27 +1,41 @@
 using UnityEngine;
 using RPG.Core;
+using RPG.Saving;
 
 namespace RPG.Combat {
-    public class Health : MonoBehaviour {
+    public class Health : MonoBehaviour, ISaveable {
         [SerializeField] float health = 100f;
         bool isDead = false;
+
 
         public bool IsDead() {
             return isDead;
         }
+
         public void TakeDamage(float damage) {
             health = Mathf.Max(health - damage, 0);
             if (health == 0 && !isDead) {
                 isDead = true;
                 GetComponent<Animator>().SetTrigger("Die");
             }
-            // print(health);
         }
 
         private void Die() {
             if (IsDead()) return;
-            GetComponent<Animator>().SetTrigger("die");
+            GetComponent<Animator>().SetTrigger("Die");
             GetComponent<ActionSchedular>().CancelCurrentAction();
         }
+
+        public object CaptureState() {
+            return health;
+        }
+        public void RestoreState(object state) {
+            health = (float) state;
+            if (health == 0) {
+                Die();
+                isDead = true;
+            }
+        }
+
     }
 }

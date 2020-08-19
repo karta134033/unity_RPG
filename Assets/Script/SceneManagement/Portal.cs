@@ -24,10 +24,18 @@ namespace RPG.SceneManagement {
             Fader fader = FindObjectOfType<Fader>();
 
             yield return fader.FadeOut(2f);
+
+            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            wrapper.Save();
+
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+            wrapper.Load();
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            wrapper.Save();  // 當載入Scenes成功會再Save一次
 
             yield return new WaitForSeconds(0.5f);
             yield return fader.FadeIn(1f);
