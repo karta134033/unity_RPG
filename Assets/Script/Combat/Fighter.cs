@@ -6,17 +6,22 @@ using RPG.Core;
 namespace RPG.Combat {
     public class Fighter : MonoBehaviour, ActionInterface {
 
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttack = 1f;
-        [SerializeField] float attackDamage = 20f;
         [SerializeField] float timeSinceLastAttack = Mathf.Infinity;
+        [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] Transform handTransform = null;
         Health target;
+        Weapon currentWeapon = null;
 
+        private void Start() {
+            EquipWeapon(defaultWeapon);
+        }
+        
         private void Update() {
             timeSinceLastAttack += Time.deltaTime;
 
             if (target != null) {
-                bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+                bool isInRange = Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
                 if (target.IsDead()) return;
                 if (!isInRange) {
                     GetComponent<Mover>().MoveTo(target.transform.position, 1f);
@@ -28,6 +33,13 @@ namespace RPG.Combat {
             }
         }
 
+        public void EquipWeapon(Weapon weapon) {
+            if (weapon == null) return;
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(handTransform, animator);
+        }
+        
         private void AttackBehavior() {
             transform.LookAt(target.transform);
             if(timeSinceLastAttack > timeBetweenAttack) {
@@ -66,7 +78,7 @@ namespace RPG.Combat {
         }
 
         void Hit() {  // 來自於動畫的事件
-            if (target != null) target.TakeDamage(attackDamage);
+            if (target != null) target.TakeDamage(currentWeapon.GetDamage());
         }
     }
 }

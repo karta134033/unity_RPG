@@ -667,6 +667,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6942421788303915155, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 312784922366671583, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
         type: 3}
       propertyPath: m_Speed
@@ -687,11 +692,29 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6942421788303915155, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
+    - target: {fileID: 548472062179841524, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
         type: 3}
-      propertyPath: uniqueIdentifier
-      value: player
-      objectReference: {fileID: 0}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 4057247017764349194, guid: 9f6bb17f82ed8394d97a27059548fdd9,
+        type: 3}
+    - target: {fileID: 548472062179841524, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
+        type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 1170589175403407393}
+    - target: {fileID: 548472062179841524, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
+        type: 3}
+      propertyPath: weaponOverride
+      value: 
+      objectReference: {fileID: 22100000, guid: af5d4064b13d0a34cb33930ba7e3e06a,
+        type: 2}
+    - target: {fileID: 548472062179841524, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: bedb59eb26a86ea49b8700602beabe7c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbacdedf5c4e7434da3947bb06e7ab1e, type: 3}
 --- !u!4 &8390152695579872719 stripped
