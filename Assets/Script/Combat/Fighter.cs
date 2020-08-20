@@ -7,9 +7,10 @@ namespace RPG.Combat {
     public class Fighter : MonoBehaviour, ActionInterface {
 
         [SerializeField] float timeBetweenAttack = 1f;
-        [SerializeField] float timeSinceLastAttack = Mathf.Infinity;
         [SerializeField] Weapon defaultWeapon = null;
-        [SerializeField] Transform handTransform = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
+        float timeSinceLastAttack = Mathf.Infinity;
         Health target;
         Weapon currentWeapon = null;
 
@@ -37,7 +38,7 @@ namespace RPG.Combat {
             if (weapon == null) return;
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
-            weapon.Spawn(handTransform, animator);
+            weapon.Spawn(rightHandTransform, leftHandTransform,animator);
         }
         
         private void AttackBehavior() {
@@ -78,7 +79,16 @@ namespace RPG.Combat {
         }
 
         void Hit() {  // 來自於動畫的事件
-            if (target != null) target.TakeDamage(currentWeapon.GetDamage());
+            if (target == null) return;
+            if (currentWeapon.HasProjectile()) {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            } else {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
+        }
+
+        void Shoot() {  // 來自於動畫弓箭射擊的事件
+            Hit();
         }
     }
 }
