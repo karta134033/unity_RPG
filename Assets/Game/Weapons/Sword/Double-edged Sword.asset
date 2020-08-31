@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d320db28519a0b4da8066393401fb78, type: 3}
-  m_Name: double-edged sword
+  m_Name: Double-edged Sword
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: af5d4064b13d0a34cb33930ba7e3e06a, type: 2}
-  equippedPrefab: {fileID: 4057247017764349194, guid: 9f6bb17f82ed8394d97a27059548fdd9,
+  equippedPrefab: {fileID: 4057247017764349194, guid: 682c00f5818f24c4a9c80c1087f02e09,
     type: 3}
-  weaponDamage: 50
+  weaponDamage: 30
   weaponRange: 5
   isRightHand: 1
   projectile: {fileID: 0}
