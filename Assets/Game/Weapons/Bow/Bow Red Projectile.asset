@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d320db28519a0b4da8066393401fb78, type: 3}
+  m_Name: Bow Red Projectile
+  m_EditorClassIdentifier: 
+  animatorOverride: {fileID: 22100000, guid: 2df674b04ab28a246a01ba974742d4e9, type: 2}
+  equippedPrefab: {fileID: 1002498192821131824, guid: 79ec04977a0d6214d9318234f5422f2d,
+    type: 3}
+  weaponDamage: 10
+  weaponRange: 15
+  isRightHand: 0
+  projectile: {fileID: 8818253323256098217, guid: 24a39d30658b4134baf60e37419598ad,
+    type: 3}
