@@ -7,15 +7,26 @@ namespace RPG.Control {
     public class PlayerController : MonoBehaviour, ActionInterface {
 
         Health health;
+        Fighter fighter;
         private void Start() {
             health = GetComponent<Health>();
+            fighter = GetComponent<Fighter>();
         }
 
         private void Update() {
             if (health.IsDead()) return;
-            if (InteractWithCombat()) return;
+            if (keyboardAction()) return;
+            // if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
             // print("Mouse location is out of range");
+        }
+
+        public bool keyboardAction() {
+            if (Input.GetKeyDown(KeyCode.A) && fighter.weaponSweeping()) {
+                fighter.TriggerAttack();
+                return true;
+            }
+            return false;
         }
 
         public bool InteractWithCombat() {
@@ -23,10 +34,10 @@ namespace RPG.Control {
             foreach (RaycastHit hit in hits) {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
+                if (!fighter.CanAttack(target.gameObject)) continue;
 
                 if (Input.GetMouseButtonDown(0)) {
-                    GetComponent<Fighter>().Attack(target.gameObject);
+                    fighter.Attack(target.gameObject);
                     // print("InteractWithCombat");
                 }
                 return true;

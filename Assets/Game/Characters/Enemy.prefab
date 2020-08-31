@@ -14,6 +14,18 @@ CapsuleCollider:
   m_Height: 2.8073401
   m_Direction: 1
   m_Center: {x: 0.005017847, y: 0.9036701, z: 0}
+--- !u!114 &1329704420554536278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6723563849602742861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5316c05738232484f8266a8992044fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2559766603070699481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,18 +55,7 @@ MonoBehaviour:
   patrolPath: {fileID: 0}
   waypointTolerance: 1
   waypointDwellTime: 3
---- !u!114 &1329704420554536278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6723563849602742861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5316c05738232484f8266a8992044fc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  chaseDistance: 5
 --- !u!1001 &5363265654237575802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,6 +817,11 @@ PrefabInstance:
     - target: {fileID: 312784922366671581, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
         type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 312784922366671581, guid: dbacdedf5c4e7434da3947bb06e7ab1e,
+        type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 312784922366671583, guid: dbacdedf5c4e7434da3947bb06e7ab1e,

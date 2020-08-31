@@ -34,11 +34,14 @@ namespace RPG.Combat {
             }
         }
 
+        public bool weaponSweeping() {
+            return !currentWeapon.HasProjectile();
+        }
         public void EquipWeapon(Weapon weapon) {
             if (weapon == null) return;
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
-            weapon.Spawn(rightHandTransform, leftHandTransform,animator);
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
         
         private void AttackBehavior() {
@@ -73,7 +76,7 @@ namespace RPG.Combat {
             GetComponent<Animator>().SetTrigger("StopAttack");
         }
 
-        private void TriggerAttack() {  // 避免沒有reset而出現小bug
+        public void TriggerAttack() {  // 避免沒有reset而出現小bug
             GetComponent<Animator>().ResetTrigger("StopAttack");
             GetComponent<Animator>().SetTrigger("Attack");
         }
