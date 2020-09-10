@@ -20,7 +20,7 @@ namespace RPG.SceneManagement {
             if (Input.GetKeyDown(KeyCode.L)) {
                 Load();
             }
-            if (Input.GetKeyDown(KeyCode.S)) {
+            if (Input.GetKeyDown(KeyCode.P)) {
                 Save();
             }
         }

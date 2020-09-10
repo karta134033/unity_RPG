@@ -34,7 +34,7 @@ namespace RPG.Combat {
             }
         }
 
-        public bool weaponSweeping() {
+        public bool weaponSweeping() {  // 確認武器可以揮動
             return !currentWeapon.HasProjectile();
         }
         public void EquipWeapon(Weapon weapon) {
@@ -71,7 +71,7 @@ namespace RPG.Combat {
             GetComponent<Mover>().Cancel();
         }
 
-        private void StopAttack() {
+        public void StopAttack() {
             GetComponent<Animator>().ResetTrigger("Attack");
             GetComponent<Animator>().SetTrigger("StopAttack");
         }

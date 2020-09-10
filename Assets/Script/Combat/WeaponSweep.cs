@@ -8,7 +8,7 @@ namespace RPG.Combat {
         bool attack = false;
 
         void Update() {
-            if (Input.GetKeyDown(KeyCode.A)) attack = true; // 有按下A才會觸發傷害
+            if (Input.GetKey(KeyCode.Z)) attack = true; // 有按下A才會觸發傷害
         }
         private void OnTriggerEnter(Collider other) {
             if (other.gameObject.tag == "Enemy" && attack) {
