@@ -29,6 +29,11 @@ namespace RPG.Combat {
         public object CaptureState() {
             return health;
         }
+
+        public float HealthPoint() {
+            return health;
+        }
+
         public void RestoreState(object state) {
             health = (float) state;
             if (health == 0) {
